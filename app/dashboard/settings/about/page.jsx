@@ -4,7 +4,7 @@ import React from 'react'
 const page = () => {
     return (
         <div className='create'>
-            <h2>Change Password</h2>
+            <h2>About</h2>
             <form>
                 <p className='about'>
                     MarineOptim Technologies Inc. is a Canadian technology company committed to solving persistent inefficiencies in the maritime industry. Founded by a team of experienced professionals from the marine, finance, technology, and business sectors, our mission is to digitize and automate the labor-intensive processes that currently hinder cargo movement and documentation in maritime logistics.
