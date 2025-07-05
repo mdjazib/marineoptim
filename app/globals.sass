@@ -598,6 +598,8 @@ $chart: #A9DFD8
 .archived
     width: 100%
     @include flex(flex-start,flex-start,column,20px)
+    h2
+        color: $primary
     @media (max-width:700px)
         padding: 0px 20px 20px 20px
     .table
@@ -609,3 +611,147 @@ $chart: #A9DFD8
         @include flex(flex-start,flex-start,column,20px)
         h3
             color: #fff
+
+.create
+    width: 100%
+    @include flex(flex-start,flex-start,column,20px)
+    padding-bottom: 20px
+    @media (max-width:700px)
+        padding: 0px 20px 20px 20px
+    h2
+        color: $primary
+    form
+        width: 100%
+        background-color: #fff
+        border: 2px solid #DDDDDD
+        padding: 20px
+        border-radius: 10px
+        @include flex(flex-start,flex-start,column,20px)
+        .lang
+            width: 100%
+            border-bottom: 1px solid #cecece
+            padding-bottom: 20px
+            @include flex(flex-start,center,row,10px)
+            cursor: pointer
+            &:nth-last-child(1)
+                border: none
+            svg
+                color: $primary
+                stroke-width: 3
+        h3
+            color: $primary
+        .about
+            color: $primary
+            font-weight: 600
+        .row
+            @include flex(space-between,center,row,20px)
+            width: 100%
+            @media (max-width:900px)
+                flex-direction: column
+        .-grid-multimedia
+            .grid
+                @include flex(flex-start,flex-start,row !important,20px !important)
+                flex-wrap: wrap
+                width: 100%
+            .block
+                flex-grow: 1
+                width: 100%
+                max-width: 400px
+                @include flex(center,center,column,10px)
+                img
+                    object-fit: cover
+                    aspect-ratio: 4 / 4
+                    border: 2px solid #E1E5EE
+                    border-radius: 10px
+                label
+                    background-color: $primary
+                    color: #fff
+                    width: 100%
+                    @include flex(center,center,row,0px)
+                    padding: 6px 10px
+                    max-width: 150px
+                    cursor: pointer
+                    font-size: 13px
+                    font-weight: 600
+        .input
+            width: 100%
+            @include flex(flex-start,flex-start,column,10px)
+            h5
+                color: $primary
+            select
+                cursor: pointer
+            textarea
+                height: 110px
+                resize: none
+            input,select,textarea
+                border: 1px solid #E1E5EE
+                background-color: #F6F7FA
+                border-radius: 5px
+                padding: 10px
+                width: 100%
+                color: $primary
+                font-weight: 600
+        input
+            &[type=submit]
+                width: 100%
+                padding: 10px
+                background-color: $primary
+                color: #fff
+                border-radius: 5px
+                cursor: pointer
+                font-size: 18px
+                font-weight: 600
+
+.settings
+    width: 100%
+    @include flex(flex-start,flex-start,column,20px)
+    padding-bottom: 20px
+    @media (max-width:700px)
+        padding: 0px 20px 20px 20px
+    h2
+        color: $primary
+    .header
+        @include flex(flex-start,center,row,15px)
+    .settings-routes
+        width: 100%
+        @include flex(flex-start,flex-start,column,15px)
+        a
+            text-decoration: none
+            padding: 14px
+            border-radius: 8px
+            border: 2px solid #DDDDDD
+            width: 100%
+            @include flex(flex-start,center,row,12px)
+            .switch
+                transition: .2s ease
+                background-color: #c9c9c9
+                border-radius: 100px
+                width: 60px
+                height: 30px
+                cursor: pointer
+                &[aria-checked="true"]
+                    background-color: $primary
+                    .indicator
+                        margin-left: 32px
+                        background-color: #fff
+                .indicator
+                    transition: .2s ease
+                    background-color: #191919
+                    border-radius: 100px
+                    height: 20px
+                    width: 20px
+                    margin-top: 5px
+                    margin-left: 5px
+            svg
+                color: $primary
+                &:nth-last-child(1)
+                    color: $text-2
+            &:hover
+                background-color: #f5f5f5
+            .row
+                width: 100%
+                h4
+                    color: $primary
+                p
+                    color: $text-4
+                    font-size: 12px
