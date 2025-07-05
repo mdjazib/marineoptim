@@ -414,24 +414,6 @@ $chart: #A9DFD8
                 font-size: 14px
             > div
                 width: 100%
-        .search
-            border: 1px solid $light-border
-            border-radius: 5px
-            width: 100%
-            max-width: 450px
-            @include flex(flex-start,center,row,10px)
-            padding-left: 10px
-            overflow: hidden
-            svg
-                color: #909090
-            input
-                padding: 10px 10px 10px 0px
-                width: 100%
-                outline: none
-                border: none
-                &::placeholder
-                    color: #909090
-                    font-weight: 600
     .flex-start
         justify-content: flex-start
         select
@@ -461,6 +443,11 @@ $chart: #A9DFD8
             th
                 padding: 10px
                 text-align: start
+                text-transform: capitalize
+    tbody
+        tr
+            &:hover
+                background-color: $bg-layer-1
     tr
         border-bottom: 1px solid #FFFFFF4D
         height: 50px
@@ -468,8 +455,6 @@ $chart: #A9DFD8
             border-top: 1px solid #FFFFFF4D
         &:nth-last-child(1)
             border: none
-        &:hover
-            background-color: $bg-layer-1
         td
             padding: 10px
             span
@@ -510,3 +495,117 @@ $chart: #A9DFD8
         @keyframes route-loading
             100%
                 width: 90%
+
+.search
+    border: 1px solid $light-border
+    border-radius: 5px
+    width: 100%
+    max-width: 450px
+    @include flex(flex-start,center,row,10px)
+    padding-left: 10px
+    overflow: hidden
+    svg
+        color: #909090
+    input
+        padding: 10px 10px 10px 0px
+        width: 100%
+        outline: none
+        border: none
+        &::placeholder
+            color: #909090
+            font-weight: 600
+.tracking
+    @include flex(flex-start,flex-start,column,20px)
+    @media (max-width:700px)
+        padding: 0px 20px 20px 20px
+    h2
+        color: $primary
+    .block
+        width: 100%
+        background-color: $primary-bg
+        padding: 20px
+        border-radius: 10px
+        @include flex(flex-start,flex-start,column,20px)
+        .col
+            width: 100%
+            @include flex(space-between,flex-start,row,20px)
+            @media (max-width:1060px)
+                flex-direction: column
+            .table
+                width: 100%
+                background-color: #fff
+                border-radius: 10px
+                padding: 20px
+                max-width: 500px
+                @include flex(flex-start,flex-start,column,20px)
+                table
+                    width: 100%
+                    tr
+                        th,td
+                            color: $primary
+                    tr
+                        border-color: #ededed !important
+                    tbody
+                        tr
+                            &:hover
+                                background-color: #ededed
+            .process
+                width: 100%
+                @include flex(flex-start,flex-start,column,37px)
+                position: relative
+                max-width: 400px
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 0px
+                    left: 19px
+                    width: 2px
+                    height: 99%
+                    background-color: #fff
+                .step
+                    @include flex(flex-start,center,row,20px)
+                    z-index: 2
+                    .ui
+                        border: 2px solid #fff
+                        background-color: $primary-bg
+                        border-radius: 100px
+                        height: 40px
+                        min-width: 40px
+                        max-width: 40px
+                        @include flex(center,center,row,0px)
+                        svg
+                            stroke-width: 3
+                    .-checked
+                        background-color: #fff
+                        svg
+                            color: $primary-bg
+                    .-target
+                        svg
+                            color: #fff
+                            fill: #fff
+                    .row
+                        h5
+                            color: #fff
+                            font-size: 20px
+                        p
+                            color: #fff
+                            font-weight: 600
+    .row
+        @include flex(center,flex-start,column,4px)
+        h3,h4
+            color: #fff
+
+.archived
+    width: 100%
+    @include flex(flex-start,flex-start,column,20px)
+    @media (max-width:700px)
+        padding: 0px 20px 20px 20px
+    .table
+        width: 100%
+        background-color: $primary-bg
+        padding: 20px
+        border-radius: 10px
+        overflow-x: overlay
+        @include flex(flex-start,flex-start,column,20px)
+        h3
+            color: #fff
