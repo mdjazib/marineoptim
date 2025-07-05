@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "apexcharts": "^4.7.0",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.5",
     "react": "^19.0.0",
+    "react-apexcharts": "^1.7.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.5"
+    "react-sortablejs": "^6.1.4",
+    "sass": "^1.89.2",
+    "sortablejs": "^1.15.6"
   }
 }

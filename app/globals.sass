@@ -1,0 +1,512 @@
+$inter: var(--font-inter)
+$text-2: #5B5B5B
+$blue-primary: #005CE6
+$yellow-primary: #FDE428
+$input-bg: #D9D9D980
+$primary: #002E5B
+$text-1: #141414
+$line: #9A9A9A
+$text-4: #919191
+$primary-bg: #316B9F
+$primary-bg-overlay: #08253F4D
+$light-border: #B9B9B9
+$btn-bg: #E3E2E2
+$bg-layer-1: #002E5B
+$chart: #A9DFD8
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: $inter
+
+@mixin flex($j,$a,$d,$g)
+    display: flex
+    justify-content: $j
+    align-items: $a
+    flex-direction: $d
+    gap: $g
+
+.auth-route
+    height: 100svh
+    width: 100%
+    @include flex(center,center,row,0px)
+    padding: 20px
+    form
+        width: 100%
+        max-width: 450px
+        height: fit-content
+        border-radius: 10px
+        @include flex(center,center,column,15px)
+        padding: 20px
+        box-shadow: 0px 10px 30px 10px #002E5B26
+        img
+            object-fit: cover
+        h2
+            font-size: 20px
+            font-weight: 600
+            position: relative
+            &::before
+                content: ""
+                position: absolute
+                width: 50%
+                height: 1.63px
+                bottom: -5px
+                left: 50%
+                transform: translateX(-50%)
+                background-color: $yellow-primary
+        .w-100
+            width: 100%
+            margin-bottom: 0px !important
+            @include flex(space-between,center,row,10px)
+        b
+            color: $text-2
+            font-size: 12px
+            a
+                color: $blue-primary
+                text-decoration: none
+        .margin
+            margin: 6px 0 10px 0
+        .col
+            @include flex(space-between,center,row,15px)
+            &:nth-child(4)
+                @media (max-width:600px)
+                    flex-direction: column
+        .password,.col
+            width: 100%
+        .password
+            position: relative
+            svg
+                position: absolute
+                right: 15px
+                cursor: pointer
+                color: $text-2
+                stroke-width: $text-2
+                top: 50%
+                transform: translateY(-50%)
+                width: 18px
+                height: 18px
+                stroke-width: 2.5
+        input
+            transition: .2s ease
+            width: 100%
+            border-radius: 5px
+            height: 50.01px
+            border-radius: 5.69px
+            border: 2px solid $input-bg
+            outline: none
+            background-color: $input-bg
+            padding: 15px
+            font-weight: 600
+            &::placeholder
+                color: $text-2
+            &:focus
+                box-shadow: 0px 3.25px 32.51px 0px #00000026
+                border-color: $primary
+                color: $text-1
+            &[type=submit]
+                background-color: $primary
+                color: #fff
+                font-weight: 600
+                font-size: 16px
+                cursor: pointer
+        .custom-checkbox
+            @include flex(flex-start,center,row,5px)
+            width: 100%
+            label
+                border: 1px solid $primary
+                height: 16px
+                width: 16px
+                border-radius: 2px
+                cursor: pointer
+                @include flex(center,center,row,0px)
+                svg
+                    width: 14px
+                    height: 14px
+                    stroke-width: 2
+                    color: #fff
+                &[aria-checked="true"]
+                    background-color: $primary
+            .forgot-password
+                width: 100%
+                @include flex(space-between,center,row,10px )
+                a
+                    color: $text-4
+        .or
+            width: 100%
+            height: 2px
+            background-color: $line
+            position: relative
+            margin: 10px 0
+            &::before
+                content: "Or register with"
+                background-color: #fff
+                padding: 0px 10px
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%,-50%)
+                color: $text-2
+                font-weight: 600
+                font-size: 14px
+        .btn
+            @include flex(center,center,row,10px)
+            border: 1px solid $line
+            border-radius: 5.69px
+            width: 100%
+            height: 45.01px
+            cursor: pointer
+            svg
+                width: 18px
+                height: 28px
+            p
+                font-weight: 600
+                color: $text-2
+                font-size: 14px
+            &:hover
+                background-color: $input-bg
+
+.layout
+    height: 100svh
+    @include flex(flex-start,flex-start,row,20px)
+    @media (max-width:700px)
+        padding: 0px
+    .mob-menu-close
+        @media (max-width:700px)
+            display: none
+    nav
+        width: 100%
+        max-width: 250px
+        background-color: $primary-bg
+        border-radius: 10px
+        height: calc(100% - 40px)
+        padding: 20px
+        margin: 20px 0px 20px 20px
+        @media (max-width:700px)
+            position: fixed
+            margin: 0px
+            height: 100%
+            top: 0px
+            left: 0px
+            border-radius: 0px
+            z-index: 9
+            &::before
+                content: ""
+                position: fixed
+                top: 0px
+                width: calc(100vw - 250px)
+                right: 0px
+                height: 100%
+                background-color: #242424c4
+        .header
+            @include flex(space-between,center,row,10px)
+            svg
+                color: #fff
+                cursor: pointer
+        ul
+            width: 100%
+            margin: 20px 0px
+            @include flex(flex-start,flex-start,column,5px)
+            &:nth-child(2)
+                height: calc(100svh - 310px)
+                @media (max-width:700px)
+                    height: calc(100svh - 270px)
+            li
+                width: 100%
+                list-style: none
+                a
+                    border-radius: 10px
+                    padding: 10px
+                    @include flex(flex-start,center,row,10px)
+                    color: #fff
+                    text-decoration: none
+                    &:hover
+                        background-color: $primary-bg-overlay
+                .active
+                    background-color: $primary-bg-overlay
+        .footer
+            border-top: 1px solid $primary-bg-overlay
+            padding-top: 12px
+    main
+        width: 100%
+        height: 100svh
+        overflow-y: overlay
+        padding-right: 20px
+        @include flex(flex-start,flex-start,column,20px)
+        @media (max-width:700px)
+            padding-right: 0px
+        header
+            @include flex(space-between,center,row,18px)
+            width: 100%
+            border-bottom: 1px solid $light-border
+            background-color: #fff
+            padding: 20px
+            position: sticky
+            z-index: 8
+            top: 0px
+            @media (max-width:700px)
+                background-color: #ededed
+            .col
+                &:nth-child(1)
+                    @include flex(space-between,center,row,18px)
+                    width: 100%
+                    display: none
+                    h2
+                        color: $primary
+                    svg
+                        cursor: pointer
+                &:nth-last-child(1)
+                    width: 100%
+                    @include flex(flex-end,center,row,18px)
+                @media (max-width:700px)
+                    &:nth-child(1)
+                        display: flex
+                    &:nth-last-child(1)
+                        display: none
+            .user-btn
+                background-color: $input-bg
+                border-radius: 100px
+                height: 40px
+                width: 40px
+                overflow: hidden
+                cursor: pointer
+                img
+                    object-fit: cover
+                    height: 100%
+                    width: 100%
+            .btn-grp
+                @include flex(center,center,row,10px)
+                height: 100%
+                a
+                    background-color: $btn-bg
+                    border-radius: 100px
+                    cursor: pointer
+                    width: 30px
+                    height: 30px
+                    @include flex(center,center,row,0px)
+                    svg
+                        color: $primary
+                        height: 18px
+                        height: 18px
+            .new-btn
+                background-color: $primary
+                color: #fff
+                border-radius: 8px
+                padding: 0px 14px
+                font-weight: 600
+                height: 35px
+                text-decoration: none
+                font-size: 14px
+                @include flex(center,center,row,0px)
+        .view
+            width: 100%
+            height: 100%
+            height: fit-content
+
+.home
+    @include flex(flex-start,flex-start,column,20px)
+    margin-bottom: 20px
+    @media (max-width:700px)
+        padding: 0px 20px
+    .col
+        width: 100%
+        @include flex(space-between,center,row,20px )
+        @media (max-width:1130px)
+            flex-direction: column
+            > div
+                flex-grow: 1
+                max-width: 100% !important
+            select
+                width: 100%
+                appearance: none
+        .shipments
+            background-color: $primary-bg
+            width: 100%
+            min-height: 270px
+            height: fit-content
+            border-radius: 10px
+            padding: 20px
+            @include flex(flex-start,flex-start,column,10px)
+            h2,h4
+                color: #fff
+            h2
+                font-size: 20px
+            h4
+                font-size: 14px
+            .cards
+                @include flex(space-evenly,center,row,10px)
+                flex-wrap: wrap
+                width: 100%
+                height: 100%
+                .card
+                    @include flex(flex-start,flex-start,column,10px)
+                    border-radius: 10px
+                    padding: 20px
+                    flex-grow: 1
+                    height: 100%
+                    background-color: $bg-layer-1
+                    &:nth-child(1)
+                        h5
+                            color: #FEB95A
+                    &:nth-child(2)
+                        h5
+                            color: #9ED3D0
+                    &:nth-child(3)
+                        h5
+                            color: #FF8F8F
+                    &:nth-child(4)
+                        h5
+                            color: #1C9EE0
+        .level
+            padding: 20px
+            background-color: $primary-bg
+            width: 100%
+            min-height: 270px
+            height: fit-content
+            border-radius: 10px
+            max-width: 340px
+            padding: 20px
+            @include flex(flex-start,flex-start,column,10px)
+            h2,h4
+                color: #fff
+            h2
+                font-size: 20px
+            h4
+                font-size: 14px
+            h5
+                @include flex(flex-start,center,row,10px)
+                color: #fff
+                .dot
+                    border-radius: 100px
+                    height: 10px
+                    width: 10px
+                    background-color: $chart
+        .success
+            background-color: $primary-bg
+            width: 100%
+            max-width: 350px
+            min-height: 315px
+            height: fit-content
+            border-radius: 10px
+            padding: 20px
+            @include flex(flex-start,flex-start,column,10px)
+            h2,h4
+                color: #fff
+            h2
+                font-size: 20px
+            h4
+                font-size: 14px
+            h1
+                color: $chart
+        .insights
+            background-color: $primary-bg
+            width: 100%
+            min-height: 315px
+            height: fit-content
+            border-radius: 10px
+            padding: 20px
+            @include flex(flex-start,flex-start,column,10px)
+            h2,h4
+                color: #fff
+            h2
+                font-size: 20px
+            h4
+                font-size: 14px
+            > div
+                width: 100%
+        .search
+            border: 1px solid $light-border
+            border-radius: 5px
+            width: 100%
+            max-width: 450px
+            @include flex(flex-start,center,row,10px)
+            padding-left: 10px
+            overflow: hidden
+            svg
+                color: #909090
+            input
+                padding: 10px 10px 10px 0px
+                width: 100%
+                outline: none
+                border: none
+                &::placeholder
+                    color: #909090
+                    font-weight: 600
+    .flex-start
+        justify-content: flex-start
+        select
+            cursor: pointer
+            border-radius: 5px
+            padding: 10px
+            border: 1px solid $light-border
+    .-col-table
+        background-color: $primary-bg
+        border-radius: 10px
+        width: 100%
+        padding: 20px
+        overflow-x: overlay
+        @include flex(flex-start,flex-start,column,10px)
+        &::-webkit-scrollbar
+            display: none
+        h2
+            color: #fff
+            font-size: 20px
+
+.-data-table
+    width: 100%
+    color: #fff
+    border-collapse: collapse
+    thead
+        tr
+            th
+                padding: 10px
+                text-align: start
+    tr
+        border-bottom: 1px solid #FFFFFF4D
+        height: 50px
+        &:nth-child(1)
+            border-top: 1px solid #FFFFFF4D
+        &:nth-last-child(1)
+            border: none
+        &:hover
+            background-color: $bg-layer-1
+        td
+            padding: 10px
+            span
+                border: 1px solid
+                padding: 5px 10px
+                font-size: 12px
+                border-radius: 4px
+                font-weight: 600
+            .shipped
+                border-color: #28AEF3
+                color: #28AEF3
+            .incomplete
+                border-color: #FCB859
+                color: #FCB859
+            .in-transit
+                border-color: $chart
+                color: $chart
+            .canceled
+                border-color: #FF8F8F
+                color: #FF8F8F
+            svg
+                cursor: pointer
+
+.route-loading
+    position: fixed
+    top: 0px
+    left: 0px
+    width: 100vw
+    z-index: 99
+    height: 5px
+    background-color: #fff
+    .bar
+        width: 0%
+        height: 100%
+        background-color: $primary-bg
+        animation: route-loading 5s linear 1
+        animation-fill-mode: forwards
+        @keyframes route-loading
+            100%
+                width: 90%
