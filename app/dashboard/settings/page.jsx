@@ -64,7 +64,7 @@ const page = () => {
                 <Link href="/dashboard/settings/region">
                     <MapPin />
                     <div className="row">
-                        <h4>Regional</h4>
+                        <h4>Region</h4>
                         <p>Set Current account region</p>
                     </div>
                     <ChevronRight />

@@ -1,10 +1,13 @@
 "use client"
+import { ArrowLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const page = () => {
+    const router = useRouter();
     return (
         <div className='create'>
-            <h2>About</h2>
+            <h2 className='crumb' onClick={() => { router.push("/dashboard/settings/") }}><ArrowLeft /><span>About</span></h2>
             <form>
                 <p className='about'>
                     MarineOptim Technologies Inc. is a Canadian technology company committed to solving persistent inefficiencies in the maritime industry. Founded by a team of experienced professionals from the marine, finance, technology, and business sectors, our mission is to digitize and automate the labor-intensive processes that currently hinder cargo movement and documentation in maritime logistics.

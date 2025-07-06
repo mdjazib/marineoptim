@@ -1,5 +1,6 @@
 "use client"
-import { Check } from 'lucide-react'
+import { ArrowLeft, Check } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 const languages = [
@@ -11,11 +12,12 @@ const languages = [
 ]
 
 const Page = () => {
+    const router = useRouter();
     const [lang, setLang] = useState("English")
 
     return (
         <div className='create'>
-            <h2>Language</h2>
+            <h2 className='crumb' onClick={() => { router.push("/dashboard/settings/") }}><ArrowLeft /><span>Language</span></h2>
             <form action="">
                 {languages.map((l, index) => (
                     <div

@@ -1,11 +1,12 @@
 'use client';
 import { Equal } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { ReactSortable } from 'react-sortablejs';
+import ShipmentDetails from '../modal/ShipmentDetails';
 
 const Table = ({ rows, setRows, drag = true }) => {
     const table = useRef();
     const [width, setWidth] = useState(0);
+    const [shipmentDetailsModal, setShipmentDetailsModal] = useState(false);
 
     useEffect(() => {
         if (!table.current) return;
@@ -29,29 +30,30 @@ const Table = ({ rows, setRows, drag = true }) => {
                         <td key={i} >{e[0] === "status" ? < span className={row.status.toLowerCase().replace(" ", "-")}>{row.status}</span> : e[1]}</td>
                     ))
             }
-            {width > 700 ? <td><Equal /></td> : <></>}
+            <td onClick={() => setShipmentDetailsModal(true)}><Equal /></td>
         </tr >
     ));
     return (
-        <table className='-data-table' ref={table}>
-            <thead>
-                <tr>
-                    {
-                        width > 700 ?
-                            Object.keys(rows[0]).slice(0, Object.keys(rows[0]).length - 2).map((e, i) => (
-                                <th key={i} >{e}</th>
-                            )) :
-                            Object.keys(rows[0]).slice(0, Object.keys(rows[0]).length - 0).map((e, i) => (
-                                <th key={i} >{e}</th>
-                            ))
-                    }
-                    {width > 700 ? <th></th> : <></>}
-                </tr>
-            </thead>
-            {
-                width > 700 && drag ? <ReactSortable tag="tbody" list={rows} setList={setRows}>{renderRows()}</ReactSortable> : <>{renderRows()}</>
-            }
-        </table>
+        <>
+            {shipmentDetailsModal ? <ShipmentDetails setShipmentDetailsModal={setShipmentDetailsModal} /> : <></>}
+            <table className='-data-table' ref={table}>
+                <thead>
+                    <tr>
+                        {
+                            width > 700 ?
+                                Object.keys(rows[0]).slice(0, Object.keys(rows[0]).length - 2).map((e, i) => (
+                                    <th key={i} >{e}</th>
+                                )) :
+                                Object.keys(rows[0]).slice(0, Object.keys(rows[0]).length - 0).map((e, i) => (
+                                    <th key={i} >{e}</th>
+                                ))
+                        }
+                        <th></th>
+                    </tr>
+                </thead>
+                {renderRows()}
+            </table>
+        </>
     );
 };
 

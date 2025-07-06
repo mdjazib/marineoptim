@@ -1,15 +1,11 @@
 "use client"
-import { AlignJustify, Archive, Bell, BellDot, CirclePlus, Crown, Earth, Home, Info, LogOut, MapPin, MessageCircleMore, Settings, UserRound, X } from 'lucide-react'
+import { AlignJustify, Archive, Bell, BellDot, CirclePlus, Crown, Earth, Home, Info, LogOut, MapPin, Settings, UserRound, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react'
-import ShipmentConfirmed from './modal/ShipmentConfirmed'
-import ShipmentDetails from './modal/ShipmentDetails'
 
 const RootLayout = ({ children }) => {
-    const [shipmentConfirmedModal, setShipmentConfirmedModal] = useState(false);
-    const [shipmentDetailsModal, setShipmentDetailsModal] = useState(false);
     const [notifications, setNotifications] = useState({ total: 1 });
     const [menu, setMenu] = useState(false);
     const layout = useRef();
@@ -31,17 +27,9 @@ const RootLayout = ({ children }) => {
     useEffect(() => {
         setLoading(false);
     }, [pathname]);
-    useEffect(() => {
-        document.addEventListener('keypress', (e) => {
-            setShipmentConfirmedModal(e.key === "c" || e.key === "C");
-            setShipmentDetailsModal(e.key === "d" || e.key === "D");
-        })
-    }, []);
     return (
         <div className="layout" ref={layout}>
             {loading ? <div className="route-loading"><div className="bar"></div></div> : <></>}
-            {shipmentConfirmedModal ? <ShipmentConfirmed setShipmentConfirmedModal={setShipmentConfirmedModal} /> : <></>}
-            {shipmentDetailsModal ? <ShipmentDetails setShipmentDetailsModal={setShipmentDetailsModal} /> : <></>}
             <nav className={menu ? "mob-menu-open" : "mob-menu-close"}>
                 <div className="header">
                     <Image src={"/logo-mini.png"} alt='Logo' width={40} height={40} />
@@ -77,9 +65,8 @@ const RootLayout = ({ children }) => {
                     <div className="col">
                         <Link href="/dashboard/shipment/new" className='new-btn' onClick={() => { setLoading(pathname === "/dashboard/shipment/new" ? false : true); setMenu(false); }}>New Shipment</Link>
                         <div className="btn-grp">
-                            <Link href="/dashboard/" onClick={() => { setLoading(pathname === "/dashboard" ? false : true); setMenu(false); }}><MessageCircleMore /></Link>
                             <Link href="/dashboard/notifications" onClick={() => { setLoading(pathname === "/dashboard/notifications" ? false : true); setMenu(false); }}>{notifications.total >= 1 ? <BellDot /> : <Bell />}</Link>
-                            <Link href="/dashboard/" onClick={() => { setLoading(pathname === "/dashboard" ? false : true); setMenu(false); }}><Earth /></Link>
+                            <Link href="/dashboard/settings/region" onClick={() => { setLoading(pathname === "/dashboard/settings/region" ? false : true); setMenu(false); }}><Earth /></Link>
                         </div>
                         <Link href="/dashboard/profile" className='user-btn' onClick={() => { setLoading(pathname === "/dashboard/profile" ? false : true); setMenu(false); }}><Image src={"/user.png"} alt='user' width={40} height={40} /></Link>
                     </div>

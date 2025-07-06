@@ -913,9 +913,11 @@ $chart: #A9DFD8
         top: 40px
         right: 40px
         cursor: pointer
-        color: #fff
         width: 40px
         height: 40px
+        z-index: 99
+        @media (min-width:700)
+            color: #fff
     .content
         background-color: #fff
         border-radius: 20px
@@ -982,3 +984,9 @@ $chart: #A9DFD8
                 .-fill
                     background-color: $primary
                     color: #fff
+
+.crumb
+    @include flex(flex-start,center,row,10px)
+    svg
+        cursor: pointer
+        stroke-width: 3
