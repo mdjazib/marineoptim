@@ -4,8 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react'
+import ShipmentConfirmed from './modal/ShipmentConfirmed'
+import ShipmentDetails from './modal/ShipmentDetails'
 
 const RootLayout = ({ children }) => {
+    const [shipmentConfirmedModal, setShipmentConfirmedModal] = useState(false);
+    const [shipmentDetailsModal, setShipmentDetailsModal] = useState(false);
     const [notifications, setNotifications] = useState({ total: 1 });
     const [menu, setMenu] = useState(false);
     const layout = useRef();
@@ -27,9 +31,17 @@ const RootLayout = ({ children }) => {
     useEffect(() => {
         setLoading(false);
     }, [pathname]);
+    useEffect(() => {
+        document.addEventListener('keypress', (e) => {
+            setShipmentConfirmedModal(e.key === "c" || e.key === "C");
+            setShipmentDetailsModal(e.key === "d" || e.key === "D");
+        })
+    }, []);
     return (
         <div className="layout" ref={layout}>
             {loading ? <div className="route-loading"><div className="bar"></div></div> : <></>}
+            {shipmentConfirmedModal ? <ShipmentConfirmed setShipmentConfirmedModal={setShipmentConfirmedModal} /> : <></>}
+            {shipmentDetailsModal ? <ShipmentDetails setShipmentDetailsModal={setShipmentDetailsModal} /> : <></>}
             <nav className={menu ? "mob-menu-open" : "mob-menu-close"}>
                 <div className="header">
                     <Image src={"/logo-mini.png"} alt='Logo' width={40} height={40} />
@@ -51,7 +63,7 @@ const RootLayout = ({ children }) => {
                 </ul>
                 <ul className='footer'>
                     <li><Link href="/dashboard/subscription" className={pathname === "/dashboard/subscription" ? "active" : "inactive"} onClick={() => { setLoading(pathname === "/dashboard/subscription" ? false : true); setMenu(false); }}><Crown />Subscription</Link></li>
-                    <li><Link href="/dashboard/support" className={pathname === "/dashboard/support" ? "active" : "inactive"} onClick={() => { setLoading(pathname === "/dashboard/support" ? false : true); setMenu(false); }}><Info />Support</Link></li>
+                    <li><Link href="/dashboard/" onClick={() => { setLoading(pathname === "/dashboard" ? false : true); setMenu(false); }}><Info />Support</Link></li>
                     <li><Link href="/dashboard/" onClick={() => { setLoading(true); setMenu(false); }}><LogOut />Logout</Link></li>
                 </ul>
             </nav>

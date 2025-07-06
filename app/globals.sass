@@ -633,6 +633,8 @@ $chart: #A9DFD8
             padding-bottom: 20px
             @include flex(flex-start,center,row,10px)
             cursor: pointer
+            h4
+                color: $primary
             &:nth-last-child(1)
                 border: none
             svg
@@ -755,3 +757,228 @@ $chart: #A9DFD8
                 p
                     color: $text-4
                     font-size: 12px
+
+.subscription
+    width: 100%
+    @include flex(flex-start,flex-start,row,20px)
+    padding-bottom: 20px
+    flex-wrap: wrap
+    @media (max-width:700px)
+        padding: 0px 20px 20px 20px
+    .-primary
+        background-color: $primary-bg !important
+        button
+            background-color: $primary-bg-overlay !important
+        h2
+            color: #fff !important
+        .price
+            h1,p
+                color: #fff !important
+        ul
+            li
+                color: #fff !important
+    .plan
+        flex-grow: 1
+        padding: 20px
+        background-color: #ededed
+        border-radius: 10px
+        @include flex(flex-start,flex-start,column,20px)
+        h2
+            color: $primary
+        .price
+            @include flex(flex-start,center,row,5px)
+            h1
+                color: $primary
+            p
+                color: #A0A5BA
+                max-width: 250px
+                text-transform: capitalize
+        ul
+            @include flex(flex-start,flex-start,column,10px)
+            list-style: none
+            margin: 15px 0px 30px 0px
+            li
+                @include flex(flex-start,center,row,10px)
+                svg
+                    color: #00FF22
+        button
+            width: 100%
+            padding: 14px
+            background-color: #8696A5
+            color: #fff
+            font-weight: 600
+            cursor: pointer
+            border: none
+            border-radius: 5px
+
+#shipment-confirmed
+    position: fixed
+    top: 0px
+    left: 0px
+    background-color: $primary-bg
+    width: 100%
+    height: 100svh
+    z-index: 99
+    @include flex(center,center,row,0px)
+    padding: 20px
+    .style-1
+        border: 40px solid #F4EBFF
+        height: 300px
+        width: 300px
+        position: fixed
+        border-radius: 100%
+        top: -150px
+        left: -150px
+    .style-2
+        border: 40px solid #E9D7FE
+        height: 300px
+        width: 300px
+        position: fixed
+        border-radius: 100%
+        bottom: -150px
+        right: -150px
+    .exit
+        position: fixed
+        top: 40px
+        right: 40px
+        cursor: pointer
+        color: #fff
+        width: 40px
+        height: 40px
+    .content
+        background-color: #fff
+        border-radius: 20px
+        width: 100%
+        max-width: 600px
+        padding: 30px
+        z-index: 9
+        @include flex(center,center,column,25px)
+        .check
+            width: 100px
+            height: 100px
+            border-radius: 100px
+            background-color: #D1FADF
+            @include flex(center,center,row,0px)
+            svg
+                color: #12B76A
+                width: 50px
+                height: 50px
+        h2
+            font-size: 20px
+        .samples
+            @include flex(center,center,row,20px)
+            @media (max-width:600px)
+                overflow-x: overlay
+                justify-content: flex-start
+                width: 100%
+                &::-webkit-scrollbar
+                    display: none
+            .block
+                @include flex(center,center,column,10px)
+                h2
+                    text-align: center
+                    color: $primary
+                    font-size: 12px
+        .ctagrp
+            @include flex(center,center,row,10px)
+            @media (max-width:600px)
+                flex-direction: column
+            button
+                transition: .2s ease
+                border: 2px solid $primary
+                color: $primary
+                padding: 10px 32px
+                background-color: #fff
+                border-radius: 5px
+                cursor: pointer
+                font-weight: 600
+                &:hover
+                    scale: .9
+            .-fill
+                background-color: $primary
+                color: #fff
+
+#shipment-details
+    position: fixed
+    top: 0px
+    left: 0px
+    background-color: $primary-bg
+    width: 100%
+    height: 100svh
+    z-index: 99
+    @include flex(center,center,row,0px)
+    padding: 20px
+    .exit
+        position: fixed
+        top: 40px
+        right: 40px
+        cursor: pointer
+        color: #fff
+        width: 40px
+        height: 40px
+    .content
+        background-color: #fff
+        border-radius: 20px
+        width: 100%
+        max-width: 600px
+        padding: 30px
+        z-index: 9
+        @include flex(center,center,column,25px)
+        h2
+            color: $primary-bg
+            font-size: 20px
+        .inside
+            border: 2px solid $primary-bg
+            border-radius: inherit
+            width: 100%
+            height: 100%
+            padding: 20px
+            @include flex(center,center,column,25px)
+            color: #394452
+            .row
+                width: 100%
+                h3
+                    font-size: 16px
+                h4
+                    font-size: 12px
+                    margin-top: 3px
+            ul
+                width: 100%
+                @include flex(flex-start,flex-start,column,4px)
+                li
+                    list-style: none
+                    font-weight: 400
+                    span
+                        color: #29A7EA
+            .samples
+                @include flex(center,center,row,20px)
+                @media (max-width:600px)
+                    overflow-x: overlay
+                    justify-content: flex-start
+                    width: 100%
+                    &::-webkit-scrollbar
+                        display: none
+                .block
+                    @include flex(center,center,column,10px)
+                    h2
+                        text-align: center
+                        color: $primary
+                        font-size: 12px
+            .ctagrp
+                @include flex(center,center,row,10px)
+                @media (max-width:600px)
+                    flex-direction: column
+                button
+                    transition: .2s ease
+                    border: 2px solid $primary
+                    color: $primary
+                    padding: 10px 32px
+                    background-color: #fff
+                    border-radius: 5px
+                    cursor: pointer
+                    font-weight: 600
+                    &:hover
+                        scale: .9
+                .-fill
+                    background-color: $primary
+                    color: #fff
